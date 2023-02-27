@@ -33,6 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
     bool isGrounded()
     {
-        return Physics.CheckSphere(groundCheck.position, .1f, ground);
+        return Physics.CheckSphere(groundCheck.position, .6f, ground);
     }
 }

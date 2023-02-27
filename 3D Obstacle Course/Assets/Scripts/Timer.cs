@@ -28,7 +28,6 @@ public class Timer : MonoBehaviour
             GameObject.Find("Rival").GetComponent<WaypointFollower>().enabled = false;   //stops rival when finish
             endText.text = "You Won!\nYour time was " + currentTime.ToString("0.00") + " seconds.";
             hideText();
-            //Invoke("nextLevel", 2f);
         }
     }
 

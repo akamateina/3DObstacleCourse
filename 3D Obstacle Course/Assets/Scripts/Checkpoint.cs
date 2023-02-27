@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Checkpoint : MonoBehaviour
 {
     [SerializeField] GameObject[] checkpoint;
+    [SerializeField] AudioSource hitSFX;
     public Vector3 spawnPoint;
     bool dead = false;
 
@@ -16,7 +15,7 @@ public class Checkpoint : MonoBehaviour
 
     private void Update()
     {
-        if(gameObject.transform.position.y < -5f)
+        if (gameObject.transform.position.y < -5f)
         {
             gameObject.transform.position = spawnPoint;
         }
@@ -28,12 +27,13 @@ public class Checkpoint : MonoBehaviour
 
 
     private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy Body"))
         {
-            if (collision.gameObject.CompareTag("Enemy Body"))
-            {
-                gameObject.transform.position = spawnPoint;
-            }
+            hitSFX.Play();
+            gameObject.transform.position = spawnPoint;
         }
+    }
 
 
     private void OnTriggerEnter(Collider other)

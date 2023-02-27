@@ -16,6 +16,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(other.gameObject);
             coins++;
             coinsText.text = "Coins: " + coins;
+            Debug.Log(coinsText.text);
         }
     }
 }
